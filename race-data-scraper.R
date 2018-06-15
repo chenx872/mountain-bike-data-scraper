@@ -7,6 +7,9 @@ library(rvest)
 #race
 #organizer
 
+organizers <- NULL
+races <- NULL
+
 
 for(i in 1:2){
   
@@ -23,18 +26,25 @@ for(i in 1:2){
   
   #race name split
   race_name_dirty <- html_nodes(webpage,'h1 a')
-  race_name_data <- html_text(race_name_dirty)
-  race_name_data
+  race_name_data2 <- html_text(race_name_dirty)
+  race_name_data2
+  
+  #race date
+  date_dirty <- html_nodes(webpage,'time')
+  date_data <- html_text(date_dirty)
+  date_data
+  
+  if (!(race_name_data %in% races)){races <- rbind(races, c(race_name_data,race_name_data2, date_data))}
+  
   
   #race organizer
   organizer_dirty <- html_nodes(webpage,'p a')
   organizer_data <- html_text(organizer_dirty)[3]
   organizer_data
   
-  #race date
-  date_dirty <- html_nodes(webpage,'time')
-  date_data <- html_text(date_dirty)
-  date_data
+  if (!(organizer_data %in% organizers)){organizers <- rbind(organizers, organizer_data)}
+  
+}
   
   #rider names, times, results
   stages <- NULL
