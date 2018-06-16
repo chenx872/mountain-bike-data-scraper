@@ -77,11 +77,11 @@ for(i in 1:2){
 
 
 #create unique ids
-install.packages("uuid",,'http://rforge.net/',type='source')
+#install.packages("uuid",,'http://rforge.net/',type='source')
 library(uuid)
 UUIDgenerate(FALSE)
 #TRUE sets time based UID and is increasing..
-UUIDgenerate(TRUE)
+#UUIDgenerate(TRUE)
 
 my_database<- src_sqlite("adverse_events", create = TRUE) # create =TRUE creates a new database
 
