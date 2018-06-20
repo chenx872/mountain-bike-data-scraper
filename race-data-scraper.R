@@ -83,5 +83,6 @@ UUIDgenerate(FALSE)
 #TRUE sets time based UID and is increasing..
 #UUIDgenerate(TRUE)
 
+#maybe do this?
 my_database<- src_sqlite("adverse_events", create = TRUE) # create =TRUE creates a new database
 
