@@ -10,11 +10,15 @@ library(rvest)
 organizers <- NULL
 races <- NULL
 
+#ews 2018
+5977,5978,5979,5980,5981,5982,5983,5984
+#ews 2017
+
 
 for(i in 1:2){
   
-  #url <- 'https://www.rootsandrain.com/race5977/'
-  url<-paste0('https://www.rootsandrain.com/race',i,'/')
+  url <- 'https://www.rootsandrain.com/race5984/'
+  #url<-paste0('https://www.rootsandrain.com/race',i,'/')
 
   #Reading the HTML code from the website
   webpage <- read_html(url)
