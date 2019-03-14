@@ -10,9 +10,18 @@ library(rvest)
 organizers <- NULL
 races <- NULL
 
-#ews 2018
+#ews 2018; sam hill
 5977,5978,5979,5980,5981,5982,5983,5984
-#ews 2017
+#ews 2017; sam hill
+4480,4481,4482,4483,4484,4485,4486,4487
+#ews 2016; richie rude, first full 8 round season
+3921:3928
+#ews 2015; 3033 was canceled; richie rude
+3029:3036
+#ews 2014; 7 rounds; jared graves?
+2091:2097
+#ews 2013; Jerome Clementz
+2017:2023
 
 
 for(i in 1:2){
