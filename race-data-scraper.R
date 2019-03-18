@@ -25,11 +25,15 @@ races <- NULL
 
 race_ids <- c(2017:2023,2091:2097,3029:3032,3034:3036,3921:3925,4093,3928,4480:4487,5977:5981,6880,5983:5984)
 stage_list <- NULL
+divisions <- NULL
 
-for(i in 1:length(race_ids)){
+
+#for(i in 1:length(race_ids)){
+ 
   
-for(i in 1:2){
+   for(i in 1:2){
     
+  
   url <- paste0('https://www.rootsandrain.com/race',race_ids[i],'/')
   #url<-paste0('https://www.rootsandrain.com/race',i,'/')
 
@@ -86,9 +90,9 @@ for(i in 1:2){
   
   #change stages table names
   names(stages) <- header_data
-  stage_list[[i]]$stages <- c(stage_list[[i]]$stages,stages)
-  stage_list[[i]]$divisions <- c(stage_list[[i]]$divisions,division_data)
-  
+  stage_list <- c(stage_list,stages)
+  print(stage_list)
+  divisions <- c(divisions,division_data)
 }
 
 
