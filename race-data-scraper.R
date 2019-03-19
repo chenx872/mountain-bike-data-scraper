@@ -11,28 +11,24 @@ organizers <- NULL
 races <- NULL
 
 #ews 2018; sam hill
-5977:5984
+#5977:5984
 #ews 2017; sam hill
-4480,:4487
+#4480,:4487
 #ews 2016; richie rude, first full 8 round season
-3921:3928
+#3921:3928
 #ews 2015; 3033 was canceled; richie rude
-3029:3036
+#3029:3036
 #ews 2014; 7 rounds; jared graves?
-2091:2097
+#2091:2097
 #ews 2013; Jerome Clementz
-2017:2023
+#2017:2023
 
 race_ids <- c(2017:2023,2091:2097,3029:3032,3034:3036,3921:3925,4093,3928,4480:4487,5977:5981,6880,5983:5984)
 stage_list <- NULL
 divisions <- NULL
 
 
-#for(i in 1:length(race_ids)){
- 
-  
-   for(i in 1:2){
-    
+for(i in 1:length(race_ids)){
   
   url <- paste0('https://www.rootsandrain.com/race',race_ids[i],'/')
   #url<-paste0('https://www.rootsandrain.com/race',i,'/')
@@ -90,13 +86,14 @@ divisions <- NULL
   
   #change stages table names
   names(stages) <- header_data
-  stage_list <- c(stage_list,stages)
-  print(stage_list)
-  divisions <- c(divisions,division_data)
+  stage_list[[i]] <- stages
+  divisions[[i]] <- as.data.frame(division_data)
 }
 
 
-
+#divisions
+#stage_list
+#races
 
 
 
