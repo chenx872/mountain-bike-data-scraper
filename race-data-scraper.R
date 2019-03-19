@@ -1,6 +1,8 @@
 
-library(rvest)
+#pull the ews races full history
 
+#only need one package
+library(rvest)
 
 #who should have an ID?
 #athlete
@@ -94,18 +96,18 @@ for(i in 1:length(race_ids)){
 #divisions
 #stage_list
 #races
-
-
-
+save(divisions, file ='data/raw-ews-data/divisions.Rdata')
+save(stage_list, file ='data/raw-ews-data/stage-list.Rdata')
+save(races, file ='data/raw-ews-data/ews-races.Rdata')
 
 
 #create unique ids
 #install.packages("uuid",,'http://rforge.net/',type='source')
-library(uuid)
-UUIDgenerate(FALSE)
+#library(uuid)
+#UUIDgenerate(FALSE)
 #TRUE sets time based UID and is increasing..
 #UUIDgenerate(TRUE)
 
 #maybe do this?
-my_database<- src_sqlite("adverse_events", create = TRUE) # create =TRUE creates a new database
+#my_database<- src_sqlite("adverse_events", create = TRUE) # create =TRUE creates a new database
 
