@@ -10,7 +10,6 @@ library(rvest)
 #organizer
 
 organizers <- NULL
-races <- NULL
 
 #ews 2018; sam hill
 #5977:5984
@@ -28,6 +27,7 @@ races <- NULL
 race_ids <- c(2017:2023,2091:2097,3029:3032,3034:3036,3921:3925,4093,3927:3928,4480:4487,5977:5981,6880,5983:5984)
 stage_list <- NULL
 divisions <- NULL
+races <- NULL
 
 
 for(i in 1:length(race_ids)){
@@ -54,7 +54,7 @@ for(i in 1:length(race_ids)){
   date_data2 <- unlist(html_attrs(date_dirty))
   #date_data
   
-  if (!(race_name_data %in% races)){races <- rbind(races, c(race_name_data,race_name_data2, date_data,webpage))}
+  if (!(race_name_data %in% races)){races <- rbind(races, c(race_name_data,race_name_data2, date_data,date_data2,webpage))}
   
   
   #race organizer
