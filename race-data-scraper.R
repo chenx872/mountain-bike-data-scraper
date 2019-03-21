@@ -9,7 +9,6 @@ library(rvest)
 #race
 #organizer
 
-organizers <- NULL
 
 #ews 2018; sam hill
 #5977:5984
@@ -46,6 +45,7 @@ for(i in 1:length(race_ids)){
   #race name split
   race_name_dirty <- html_nodes(webpage,'h1 a')
   race_name_data2 <- html_text(race_name_dirty)
+  print(race_name_data2)
   #race_name_data2
   
   #race date
@@ -54,8 +54,8 @@ for(i in 1:length(race_ids)){
   date_data2 <- unlist(html_attrs(date_dirty))
   #date_data
   
-  if (!(race_name_data %in% races)){races <- rbind(races, c(race_name_data,race_name_data2, date_data,date_data2,webpage))}
-  
+  #if (!(race_name_data %in% races)){races <- rbind(races, c(race_name_data,race_name_data2, date_data,date_data2,webpage))}
+  races <- rbind(races, c(race_name_data,race_name_data2, date_data,date_data2,webpage))
   
   #race organizer
   #organizer_dirty <- html_nodes(webpage,'p a')
