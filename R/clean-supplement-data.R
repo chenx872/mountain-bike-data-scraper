@@ -71,10 +71,13 @@ load("~/Documents/Egnyte/Private/nlangholz/mountain-bike-data-scraper/data/raw-e
 divisions <- lapply(divisions,function(x) str_squish(str_remove(as.character(x$division_data)," show_chart View race progression dialpad View finish spread")))
 
 
-
 load("~/Documents/Egnyte/Private/nlangholz/mountain-bike-data-scraper/data/raw-ews-data/stage-list.Rdata")
 
 stage_results <- bind_rows(stage_list)
+riders_num <- unlist(lapply(stage_list,function(x) dim(x)[1]))
+race_ids <- c(2017:2023,2091:2097,3029:3032,3034:3036,3921:3925,4093,3927:3928,4480:4487,5977:5981,6880,5983:5984)
+race_ids <- rep(race_ids,times = riders_num)
+stage_results$race_id <- race_ids
 
 x1 <- diff(c(which(stage_results$`Pos ▼`==1),dim(stage_results)[1]))
 x1[length(x1)] <- x1[length(x1)] + 1
@@ -120,9 +123,15 @@ stage_results %<>% select(-Marin,-Haglofs,-Napier,-WTB,-Enve,-Hope)
 
 names(stage_results) <- c('position','bib','name','area','yob','sponsors'
                           ,'stage_1','stage_2','stage_3','stage_4','stage_5','total_time','diff'
-                          ,'licence','penalties','stage_6','stage_7','stage_8','stage_9','division')
+                          ,'licence','penalties','stage_6','stage_7','stage_8','stage_9','race_id','division')
 
 
 stage_results <- stage_results[c('position','bib','name','area','yob','licence','sponsors'
   ,'stage_1','stage_2','stage_3','stage_4','stage_5','stage_6','stage_7','stage_8','stage_9'
-  ,'total_time','diff','division')]
+  ,'total_time','diff','division','race_id')]
+
+save(stage_results, file ='data/final-ews-data/ews-stages-complete.Rdata')
+
+
+
+
