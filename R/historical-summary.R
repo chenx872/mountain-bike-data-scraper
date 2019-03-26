@@ -30,3 +30,10 @@ stage_results %>% group_by(name) %>% mutate(avg_pos = mean(as.numeric(position),
 stage_results %>% group_by(name) %>% mutate(avg_pos = mean(as.numeric(position),na.rm = TRUE),races = n()) %>% arrange(avg_pos)  %>% filter(races > 10) %>% select(name,avg_pos,races) %>% unique() %>% View()
 
 stage_results[which(tolower(stage_results$name) =='cécile ravanel'),]
+
+
+
+#gsub works
+stage_results$stage_1 <- gsub('*s*','',stage_results$stage_1)
+#this doesn't
+strptime(stage_results$stage_1, format = "%m:%S:%OS")
