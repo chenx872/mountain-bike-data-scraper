@@ -37,3 +37,5 @@ stage_results[which(tolower(stage_results$name) =='cécile ravanel'),]
 stage_results$stage_1 <- gsub('*s*','',stage_results$stage_1)
 #this doesn't
 strptime(stage_results$stage_1, format = "%m:%S:%OS")
+#this does something, not right yet
+strptime("23:57.1",format = "%H:%M.%OS")
